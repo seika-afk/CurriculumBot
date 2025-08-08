@@ -1,0 +1,11 @@
+stages:
+  train_pipeline:
+    cmd: python Text_store.py
+    deps:
+      - Text_store.py
+      - Data_ingestion.py
+      - curr.PDF
+    outs:
+      - faiss_index
+
+

@@ -1,0 +1,19 @@
+# Phas 1:
+rag building
+
+[x] 1- document Ingestion
+	- will load pdf while mantaining structure
+
+
+[] 2- Text Chunking - Embedding - VectorStoring
+	- breaking large document
+	- text splitter
+	- embedding
+	- saving this embedding
+
+3 - Retrieving from semantic scanner.
+
+4- Generation from query.
+
+
+

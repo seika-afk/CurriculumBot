@@ -1,0 +1,4 @@
+data_ingestion:
+  pdf_file: "curr.PDF"
+retrieving:
+  num_of_retrieved_docs: 100

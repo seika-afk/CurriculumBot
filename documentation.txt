@@ -1,0 +1,8 @@
+ # I have added two faces to the model 
+
+ #1 - run the model to train it on the pdf
+ 	-provide the pdf
+	-then run the pipeline by "dvc repro"
+	-to change anything check dvc.yaml
+#2 - Application part
+	- for it just run the main.py as it will retrieve the vectors from local storage.
