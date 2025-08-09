@@ -3,7 +3,7 @@ from langchain_community.embeddings import HuggingFaceEmbeddings
 import yaml
 
 
-with open("config.yaml",'r') as f:
+with open("params.yaml",'r') as f:
     config=yaml.safe_load(f)
 
 

@@ -6,3 +6,4 @@ sentence-transformers
 python-dotenv
 dvc
 dvclive
+tf-keras

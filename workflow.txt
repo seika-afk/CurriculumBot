@@ -5,7 +5,7 @@ rag building
 	- will load pdf while mantaining structure
 
 
-[] 2- Text Chunking - Embedding - VectorStoring
+[x] 2- Text Chunking - Embedding - VectorStoring
 	- breaking large document
 	- text splitter
 	- embedding
