@@ -1,9 +1,8 @@
 # TODO
-
-[x] Backend
+- Backend [x]
 ---
-[X] API Integration
+- API Integration [x]
 ---
-[] API Deployment
+- API Deployment
 ---
-[] Frontend 
+- Frontend 
