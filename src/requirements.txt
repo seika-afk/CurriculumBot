@@ -7,3 +7,7 @@ python-dotenv
 dvc
 dvclive
 tf-keras
+fastapi
+pydantic
+uvicorn
+

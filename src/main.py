@@ -72,10 +72,10 @@ Question: {question}
 )
 
 x = ""
-while x != "q":
+
+def query(x):
 
     try:
-        x = input(" > Enter  \n > ")
         retrieved_docs = retriever.invoke(x)
         context_text = "\n\n".join(doc.page_content for doc in retrieved_docs)
         final_prompt = prompt.invoke({"context": context_text, "question": x})
@@ -94,11 +94,10 @@ while x != "q":
         text = completion.choices[0].message.content
 
         if "</think>" in text:
-            answer = text.split("</think>")[-1].strip()
-            print(answer)
-        else:
-            print("No <think> block found.")
+            text = text.split("</think>")[-1].strip()
+        return text
+
     except Exception as e :
         print(e)
         logger.error(f"Unexpected error occured.")
-        raise
+        return "Error Occured."
