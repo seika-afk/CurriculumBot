@@ -3,6 +3,6 @@
 ---
 - API Integration [x]
 ---
-- API Deployment
+- API Deployment [x]
 ---
 - Frontend 
