@@ -74,30 +74,33 @@ Question: {question}
 x = ""
 
 def query(x):
-
     try:
         retrieved_docs = retriever.invoke(x)
         context_text = "\n\n".join(doc.page_content for doc in retrieved_docs)
         final_prompt = prompt.invoke({"context": context_text, "question": x})
 
-        completion = client.chat.completions.create(
+        # Streaming response
+        stream = client.chat.completions.stream(
             model="deepseek-ai/DeepSeek-R1",
-            messages=[
-                {
-                    "role": "user",
-                    "content": str(final_prompt)
-                }
-            ],
+            messages=[{"role": "user", "content": str(final_prompt)}],
             max_tokens=400
         )
 
-        text = completion.choices[0].message.content
+        full_text = ""
+        for event in stream:
+            if event.type == "token":   
+                print(event.token, end="", flush=True)
+                full_text += event.token
+            elif event.type == "error":
+                logger.error(f"Stream error: {event.error}")
+                return "Error Occurred."
 
-        if "</think>" in text:
-            text = text.split("</think>")[-1].strip()
-        return text
+        if "</think>" in full_text:
+            full_text = full_text.split("</think>")[-1].strip()
 
-    except Exception as e :
-        print(e)
-        logger.error(f"Unexpected error occured.")
-        return "Error Occured."
+        return full_text
+
+    except Exception as e:
+        logger.error(f"Unexpected error: {str(e)}")
+        return "Error Occurred."
+
